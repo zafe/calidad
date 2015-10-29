@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="report1" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="1fa6d915-e291-479b-9697-ca3d7585b59e">
+	<queryString language="SQL">
+		<![CDATA[SELECT
+     horario.`HorarioId` AS horario_HorarioId,
+     horario.`AsignaturaId` AS horario_AsignaturaId,
+     horario.`AsignaturaNombre` AS horario_AsignaturaNombre,
+     horario.`DocenteId` AS horario_DocenteId,
+     horario.`DocenteNombre` AS horario_DocenteNombre,
+     horario.`Dia` AS horario_Dia,
+     horario.`Modulo` AS horario_Modulo,
+     horario.`Curso` AS horario_Curso,
+     horario.`Comision` AS horario_Comision
+FROM
+     `horario` horario]]>
+	</queryString>
+	<field name="horario_HorarioId" class="java.lang.Long"/>
+	<field name="horario_AsignaturaId" class="java.lang.Long"/>
+	<field name="horario_AsignaturaNombre" class="java.lang.String"/>
+	<field name="horario_DocenteId" class="java.lang.Long"/>
+	<field name="horario_DocenteNombre" class="java.lang.String"/>
+	<field name="horario_Dia" class="java.lang.String"/>
+	<field name="horario_Modulo" class="java.lang.String"/>
+	<field name="horario_Curso" class="java.lang.String"/>
+	<field name="horario_Comision" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="79" splitType="Stretch"/>
+	</title>
+	<pageHeader>
+		<band height="35" splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="61" splitType="Stretch"/>
+	</columnHeader>
+	<detail>
+		<band height="125" splitType="Stretch"/>
+	</detail>
+	<columnFooter>
+		<band height="45" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="54" splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="42" splitType="Stretch"/>
+	</summary>
+</jasperReport>

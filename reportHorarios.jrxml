@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" language="groovy" pageWidth="595" pageHeight="842" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="6ff97687-cd7e-4a87-8ee0-02d1ac9d14bb">
+    <queryString language="SQL">
+		<![CDATA[SELECT
+     horario.`HorarioId` AS horario_HorarioId,
+     horario.`AsignaturaId` AS horario_AsignaturaId,
+     horario.`AsignaturaNombre` AS horario_AsignaturaNombre,
+     horario.`DocenteId` AS horario_DocenteId,
+     horario.`DocenteNombre` AS horario_DocenteNombre,
+     horario.`Dia` AS horario_Dia,
+     horario.`Modulo` AS horario_Modulo,
+     horario.`Curso` AS horario_Curso,
+     horario.`Comision` AS horario_Comision,
+     asignatura.`AsignaturaId` AS asignatura_AsignaturaId,
+     asignatura.`Codigo` AS asignatura_Codigo,
+     asignatura.`Nombre` AS asignatura_Nombre,
+     asignatura.`Nivel` AS asignatura_Nivel,
+     asignatura.`CargaSemanal` AS asignatura_CargaSemanal,
+     asignatura.`Area` AS asignatura_Area,
+     asignatura.`Condicion` AS asignatura_Condicion,
+     horario.`AsignaturaNombre` AS h_AsignaturaNombre,
+     horario.`DocenteNombre` AS h_DocenteNombre,
+     horario.`Dia` AS h_Dia,
+     horario.`Modulo` AS h_Modulo,
+     horario.`Curso` AS h_Curso,
+     horario.`Comision` AS h_Comision,
+     asignatura.`Area` AS a_Area,
+     asignatura.`Condicion` AS a_Condicion,
+     asignatura.`CargaSemanal` AS a_CargaSemanal
+FROM
+     `horario` horario INNER JOIN `asignatura` asignatura ON horario.`AsignaturaId` = asignatura.`AsignaturaId`]]>
+    </queryString>
+    <background>
+        <band/>
+    </background>
+    <title>
+        <band height="72">
+            <frame>
+                <reportElement mode="Opaque" x="-20" y="-20" width="595" height="92" backcolor="#006699" uuid="833ed04a-d9ea-4e57-a411-2e14aa2f1554"/>
+                <staticText>
+                    <reportElement x="20" y="20" width="234" height="43" forecolor="#FFFFFF" uuid="a54df52c-bc86-4234-a952-c5d1c8be7cd0"/>
+                    <textElement>
+                        <font size="34" isBold="true"/>
+                    </textElement>
+                    <text><![CDATA[TITLE]]></text>
+                </staticText>
+                <staticText>
+                    <reportElement x="395" y="43" width="180" height="20" forecolor="#FFFFFF" uuid="0e9e4f11-be7f-4f8f-930e-143f25a7c4c1"/>
+                    <textElement textAlignment="Right">
+                        <font size="14" isBold="false"/>
+                    </textElement>
+                    <text><![CDATA[Add a description here]]></text>
+                </staticText>
+            </frame>
+        </band>
+    </title>
+    <pageHeader>
+        <band height="13"/>
+    </pageHeader>
+    <columnHeader>
+        <band height="21">
+            <line>
+                <reportElement x="-20" y="20" width="595" height="1" forecolor="#666666" uuid="0b429845-8a4a-4f7a-aaf3-16ad99537b07"/>
+            </line>
+        </band>
+    </columnHeader>
+    <detail>
+        <band height="20">
+            <line>
+                <reportElement positionType="FixRelativeToBottom" x="0" y="19" width="555" height="1" uuid="04cf436e-4970-4922-8fb7-1131b0ee09fe"/>
+            </line>
+        </band>
+    </detail>
+    <columnFooter>
+        <band/>
+    </columnFooter>
+    <pageFooter>
+        <band height="17">
+            <textField>
+                <reportElement mode="Opaque" x="0" y="4" width="515" height="13" backcolor="#E6E6E6" uuid="8068542a-1adf-41ac-adee-5a24b3b135db"/>
+                <textElement textAlignment="Right"/>
+                <textFieldExpression><![CDATA["Page "+$V{PAGE_NUMBER}+" of"]]></textFieldExpression>
+            </textField>
+            <textField evaluationTime="Report">
+                <reportElement mode="Opaque" x="515" y="4" width="40" height="13" backcolor="#E6E6E6" uuid="ec37a1fc-c837-40f5-a2de-5b49aa39b22d"/>
+                <textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
+            </textField>
+            <textField pattern="EEEEE dd MMMMM yyyy">
+                <reportElement x="0" y="4" width="100" height="13" uuid="36862af3-f111-42d6-a517-59ca0dab6174"/>
+                <textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+            </textField>
+        </band>
+    </pageFooter>
+    <summary>
+        <band/>
+    </summary>
+</jasperReport>
