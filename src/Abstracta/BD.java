@@ -20,7 +20,7 @@ public abstract class BD {
             Class.forName("com.mysql.jdbc.Driver");
             String url = "jdbc:mysql://localhost:3306/mydb";
             String user = "root";
-            String password = "root";
+            String password = "fernando";
             cn= DriverManager.getConnection(url, user, password);
         } catch (ClassNotFoundException e) {
             cn=null;
