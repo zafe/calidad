@@ -442,7 +442,7 @@ public void mostrar(){
         this.jtPlantaDocente.setModel(info);
         Connection cn = BD.getConnection();
         Statement stmt = cn.createStatement();
-        ResultSet rs = stmt.executeQuery("SELECT a.Codigo,a.Nombre,a.CargaSemanal,a.Nivel FROM mydb.asignatura a");
+        ResultSet rs = stmt.executeQuery("SELECT a.Codigo,a.Nombre,a.CargaSemanal,a.Nivel FROM mydb.Asignatura a");
         //Obteniendo la informacion de las columnas que estan siendo consultadas
         ResultSetMetaData rsMd = (ResultSetMetaData) rs.getMetaData();
         //La cantidad de columnas que tiene la consulta
