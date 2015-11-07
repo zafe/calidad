@@ -271,7 +271,7 @@ public class Login extends javax.swing.JFrame {
         try
         {
 
-            Connection unaConexion  = DriverManager.getConnection ("jdbc:mysql://localhost/mydb","root", "root");
+            Connection unaConexion  = DriverManager.getConnection ("jdbc:mysql://localhost/mydb","root", "fernando");
             // Preparamos la consulta
             Statement instruccionSQL = unaConexion.createStatement();
             ResultSet resultadosConsulta = instruccionSQL.executeQuery ("SELECT Usuario , Password FROM mydb.Usuario where usuario='"+elUsr+"' AND password='"+ elPw+"'");

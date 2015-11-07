@@ -18,11 +18,11 @@ private String driver;
 private boolean conextado=false;
     public Conexion() {
         this.usuario="root";
-        this.clave="root";
+        this.clave="fernando";
         this.motor="mysql";
         this.db="mydb";
         this.driver="com.mysql.jdbc.Driver";
-        this.host="localhost";
+        this.host="localhost:3306";
         
 
     }
