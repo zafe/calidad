@@ -747,7 +747,7 @@ public static javax.swing.JDesktopPane escritorio;
         this.jtCargoDocente.setModel(info);
         Connection cn = BD.getConnection();
         Statement stmt = cn.createStatement();
-        ResultSet rs = stmt.executeQuery("SELECT a.Nivel,a.Nombre,d.Condicion,c.Nombre FROM mydb.cargo_has_docente cd inner join mydb.asignatura a on cd.Asignatura_AsignaturaId=a.AsignaturaId inner join mydb.Docente d on d.DocenteId=cd.Docente_DocenteId inner join mydb.cargo c on c.CargoId=cd.Cargo_CargoId where cd.Docente_DocenteId="+txtc.getText());
+        ResultSet rs = stmt.executeQuery("SELECT a.Nivel,a.Nombre,d.Condicion,c.Nombre FROM mydb.cargo_has_docente cd inner join mydb.asignatura a on cd.Asignatura_AsignaturaId=a.AsignaturaId inner join mydb.Docente d on d.DocenteId=cd.Docente_DocenteId inner join mydb.Cargo c on c.CargoId=cd.Cargo_CargoId where cd.Docente_DocenteId="+txtc.getText());
         //Obteniendo la informacion de las columnas que estan siendo consultadas
         ResultSetMetaData rsMd = (ResultSetMetaData) rs.getMetaData();
         //La cantidad de columnas que tiene la consulta

@@ -49,13 +49,13 @@ private CargoDocente CargoDocente;
          try {
             Connection con = BD.getConnection();
             Statement stmt = con.createStatement();
-            ResultSet rs2 = stmt.executeQuery("SELECT Cargo_CargoId,c.Nombre FROM mydb.asignatura a inner join mydb.cargo_has_docente cd on a.AsignaturaId =cd.Asignatura_AsignaturaId inner join mydb.cargo c on c.CargoId = cd.Cargo_CargoId where Codigo='"+txtId.getText()+"'");
+            ResultSet rs2 = stmt.executeQuery("SELECT Cargo_CargoId,c.Nombre FROM mydb.asignatura a inner join mydb.cargo_has_docente cd on a.AsignaturaId =cd.Asignatura_AsignaturaId inner join mydb.Cargo c on c.CargoId = cd.Cargo_CargoId where Codigo='"+txtId.getText()+"'");
             //jCargo.removeAllItems();
             while (rs2.next()) {
                 String aux1 = String.valueOf(rs2.getString(1)+" - "+rs2.getString(2));
                 jCargo.addItem(aux1);
             }
-            ResultSet rs3 = stmt.executeQuery("SELECT d.DocenteId,d.Nombre FROM mydb.asignatura a inner join mydb.cargo_has_docente cd on a.AsignaturaId =cd.Asignatura_AsignaturaId inner join mydb.cargo c on c.CargoId = cd.Cargo_CargoId inner join mydb.Docente d on d.DocenteId=cd.Docente_DocenteId where Codigo='"+txtId.getText()+"'");
+            ResultSet rs3 = stmt.executeQuery("SELECT d.DocenteId,d.Nombre FROM mydb.asignatura a inner join mydb.cargo_has_docente cd on a.AsignaturaId =cd.Asignatura_AsignaturaId inner join mydb.Cargo c on c.CargoId = cd.Cargo_CargoId inner join mydb.Docente d on d.DocenteId=cd.Docente_DocenteId where Codigo='"+txtId.getText()+"'");
             while (rs3.next()) {
                 String aux2 = String.valueOf(rs3.getString(1)+" - "+rs3.getString(2));
                 jDocente.addItem(aux2);
@@ -360,7 +360,7 @@ private CargoDocente CargoDocente;
              
               
                 
-                ResultSet rs4 = stmt.executeQuery("SELECT cd.cargoDocenteId FROM mydb.asignatura a inner join mydb.cargo_has_docente cd on a.AsignaturaId =cd.Asignatura_AsignaturaId inner join mydb.cargo c on c.CargoId = cd.Cargo_CargoId inner join mydb.Docente d on d.DocenteId=cd.Docente_DocenteId where c.CargoId='"+auxC+"' and d.DocenteId='"+auxD+"'");
+                ResultSet rs4 = stmt.executeQuery("SELECT cd.cargoDocenteId FROM mydb.asignatura a inner join mydb.cargo_has_docente cd on a.AsignaturaId =cd.Asignatura_AsignaturaId inner join mydb.Cargo c on c.CargoId = cd.Cargo_CargoId inner join mydb.Docente d on d.DocenteId=cd.Docente_DocenteId where c.CargoId='"+auxC+"' and d.DocenteId='"+auxD+"'");
                 while(rs4.next()){
                 txtCD.setText(String.valueOf(rs4.getString(1)));
                                System.out.println("txtCD:"+rs4.getString(1));
@@ -538,7 +538,7 @@ private CargoDocente CargoDocente;
         this.jtCargoDocente.setModel(info);
         Connection cn = BD.getConnection();
         Statement stmt = cn.createStatement();
-        ResultSet rs = stmt.executeQuery("SELECT c.Nombre,pd.Comisiones,pd.Dedicaciones,d.Nombre FROM mydb.Plantadocente pd inner join mydb.cargo_has_docente cd on pd.CargohasDocente_CargoDocenteId=cd.CargoDocenteId inner join mydb.Docente d on cd.Docente_DocenteId=d.DocenteId inner join mydb.cargo c on c.CargoId=cd.Cargo_CargoId");
+        ResultSet rs = stmt.executeQuery("SELECT c.Nombre,pd.Comisiones,pd.Dedicaciones,d.Nombre FROM mydb.Plantadocente pd inner join mydb.cargo_has_docente cd on pd.CargohasDocente_CargoDocenteId=cd.CargoDocenteId inner join mydb.Docente d on cd.Docente_DocenteId=d.DocenteId inner join mydb.Cargo c on c.CargoId=cd.Cargo_CargoId");
         //Obteniendo la informacion de las columnas que estan siendo consultadas
         ResultSetMetaData rsMd = (ResultSetMetaData) rs.getMetaData();
         //La cantidad de columnas que tiene la consulta

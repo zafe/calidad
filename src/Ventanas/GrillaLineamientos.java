@@ -331,7 +331,7 @@ public class GrillaLineamientos extends javax.swing.JInternalFrame {
         this.jtContenidoLineamiento.setModel(info);
         Connection cn = BD.getConnection();
         Statement stmt = cn.createStatement();
-        ResultSet rs = stmt.executeQuery("SELECT cantidadComision,c.Nombre,dedicacion FROM mydb.Lineamiento  l inner join mydb.cargo c on l.Cargo_CargoId = c.CargoId where lineamientoId="+txtId.getText());
+        ResultSet rs = stmt.executeQuery("SELECT cantidadComision,c.Nombre,dedicacion FROM mydb.Lineamiento  l inner join mydb.Cargo c on l.Cargo_CargoId = c.CargoId where lineamientoId="+txtId.getText());
         //Obteniendo la informacion de las columnas que estan siendo consultadas
         ResultSetMetaData rsMd = (ResultSetMetaData) rs.getMetaData();
         //La cantidad de columnas que tiene la consulta

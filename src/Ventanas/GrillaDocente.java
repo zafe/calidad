@@ -808,7 +808,7 @@ public class GrillaDocente extends javax.swing.JInternalFrame {
         this.jtCargoDocente.setModel(info);
         Connection cn = BD.getConnection();
         Statement stmt = cn.createStatement();
-        ResultSet rs = stmt.executeQuery("SELECT cd.CargoDocenteId,a.Nivel,a.Nombre,d.Condicion,c.Nombre FROM mydb.cargo_has_docente cd inner join mydb.asignatura a on cd.Asignatura_AsignaturaId=a.AsignaturaId inner join mydb.docente d on d.DocenteId=cd.Docente_DocenteId inner join mydb.cargo c on c.CargoId=cd.Cargo_CargoId where cd.Docente_DocenteId="+txtDocenteId.getText());
+        ResultSet rs = stmt.executeQuery("SELECT cd.CargoDocenteId,a.Nivel,a.Nombre,d.Condicion,c.Nombre FROM mydb.cargo_has_docente cd inner join mydb.asignatura a on cd.Asignatura_AsignaturaId=a.AsignaturaId inner join mydb.docente d on d.DocenteId=cd.Docente_DocenteId inner join mydb.Cargo c on c.CargoId=cd.Cargo_CargoId where cd.Docente_DocenteId="+txtDocenteId.getText());
       
        
         //Obteniendo la informacion de las columnas que estan siendo consultadas
