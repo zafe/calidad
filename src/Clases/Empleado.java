@@ -194,7 +194,7 @@ public class Empleado extends Entidad {
     }
 
   private static ArrayList<Empleado> listar(String atributo, String parametro, String comparador) {
-        return consultarSQL("select * from empleado where " + atributo + " " + comparador + " '" + parametro + "'");
+        return consultarSQL("select * from Empleado where " + atributo + " " + comparador + " '" + parametro + "'");
     }
 
     private static ArrayList<Empleado> consultarSQL(String sql) {
