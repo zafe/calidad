@@ -144,7 +144,7 @@ public class Lineamiento extends Entidad {
     @Override
     public ResultSet leer() throws SQLException {
          ResultSet rs=null;
-         String consulta="select * from lineamiento";
+         String consulta="select * from Lineamiento";
          Conexion con=new Conexion();
          con.conectar();
      try{

@@ -539,7 +539,7 @@ public class NuevoLineamiento extends javax.swing.JFrame {
         this.jtDedicacion.setModel(info);
         Connection cn = BD.getConnection();
         Statement stmt = cn.createStatement();
-        ResultSet rs = stmt.executeQuery("SELECT c.Nombre,CantidadComision, l.Dedicacion FROM mydb.lineamiento l inner join mydb.cargo c on l.Cargo_CargoId = c.CargoId;");
+        ResultSet rs = stmt.executeQuery("SELECT c.Nombre,CantidadComision, l.Dedicacion FROM mydb.Lineamiento l inner join mydb.cargo c on l.Cargo_CargoId = c.CargoId;");
         //Obteniendo la informacion de las columnas que estan siendo consultadas
         ResultSetMetaData rsMd = (ResultSetMetaData) rs.getMetaData();
         //La cantidad de columnas que tiene la consulta
