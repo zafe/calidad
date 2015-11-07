@@ -476,7 +476,7 @@ public class GrillaHorario extends javax.swing.JInternalFrame {
 
 //}// para probar
             
-            ResultSet rs1 = stmt.executeQuery("SELECT pd.Dedicaciones from mydb.cargo_has_docente cd inner join mydb.plantadocente pd on pd.CargohasDocente_CargoDocenteId=cd.cargoDocenteId where cd.Docente_DocenteId ='"+aux2+"' and cd.Asignatura_AsignaturaId='"+txtAsignaturaId.getText()+"';");
+            ResultSet rs1 = stmt.executeQuery("SELECT pd.Dedicaciones from mydb.cargo_has_docente cd inner join mydb.Plantadocente pd on pd.CargohasDocente_CargoDocenteId=cd.cargoDocenteId where cd.Docente_DocenteId ='"+aux2+"' and cd.Asignatura_AsignaturaId='"+txtAsignaturaId.getText()+"';");
             txtDedicacion.removeAll();
             while(rs1.next()){
                 String dedi= String.valueOf(rs1.getString(1));

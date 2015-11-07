@@ -538,7 +538,7 @@ private CargoDocente CargoDocente;
         this.jtCargoDocente.setModel(info);
         Connection cn = BD.getConnection();
         Statement stmt = cn.createStatement();
-        ResultSet rs = stmt.executeQuery("SELECT c.Nombre,pd.Comisiones,pd.Dedicaciones,d.Nombre FROM mydb.plantadocente pd inner join mydb.cargo_has_docente cd on pd.CargohasDocente_CargoDocenteId=cd.CargoDocenteId inner join mydb.Docente d on cd.Docente_DocenteId=d.DocenteId inner join mydb.cargo c on c.CargoId=cd.Cargo_CargoId");
+        ResultSet rs = stmt.executeQuery("SELECT c.Nombre,pd.Comisiones,pd.Dedicaciones,d.Nombre FROM mydb.Plantadocente pd inner join mydb.cargo_has_docente cd on pd.CargohasDocente_CargoDocenteId=cd.CargoDocenteId inner join mydb.Docente d on cd.Docente_DocenteId=d.DocenteId inner join mydb.cargo c on c.CargoId=cd.Cargo_CargoId");
         //Obteniendo la informacion de las columnas que estan siendo consultadas
         ResultSetMetaData rsMd = (ResultSetMetaData) rs.getMetaData();
         //La cantidad de columnas que tiene la consulta
