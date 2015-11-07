@@ -447,7 +447,7 @@ public class GrillaHorario extends javax.swing.JInternalFrame {
                 String docenteNombre =String.valueOf(rs4.getString(1));
                 txtDocenteNombre.setText(docenteNombre);
             }
-            ResultSet rs = stmt.executeQuery("select a.AsignaturaId,a.nombre from mydb.cargo_has_docente cd inner join mydb.asignatura a on cd.Asignatura_AsignaturaId = a.AsignaturaId where cd.Docente_DocenteId="+aux2);
+            ResultSet rs = stmt.executeQuery("select a.AsignaturaId,a.nombre from mydb.Cargo_has_docente cd inner join mydb.asignatura a on cd.Asignatura_AsignaturaId = a.AsignaturaId where cd.Docente_DocenteId="+aux2);
             jAsignatura.removeAllItems();
             while (rs.next()) {
                 String aux = String.valueOf(rs.getString(1)+" - "+rs.getString(2));
@@ -476,20 +476,20 @@ public class GrillaHorario extends javax.swing.JInternalFrame {
 
 //}// para probar
             
-            ResultSet rs1 = stmt.executeQuery("SELECT pd.Dedicaciones from mydb.cargo_has_docente cd inner join mydb.Plantadocente pd on pd.CargohasDocente_CargoDocenteId=cd.cargoDocenteId where cd.Docente_DocenteId ='"+aux2+"' and cd.Asignatura_AsignaturaId='"+txtAsignaturaId.getText()+"';");
+            ResultSet rs1 = stmt.executeQuery("SELECT pd.Dedicaciones from mydb.Cargo_has_docente cd inner join mydb.Plantadocente pd on pd.CargohasDocente_CargoDocenteId=cd.cargoDocenteId where cd.Docente_DocenteId ='"+aux2+"' and cd.Asignatura_AsignaturaId='"+txtAsignaturaId.getText()+"';");
             txtDedicacion.removeAll();
             while(rs1.next()){
                 String dedi= String.valueOf(rs1.getString(1));
                 txtDedicacion.setText(dedi);
             }
              //para probar
-            ResultSet rs2 = stmt.executeQuery("select area from mydb.cargo_has_docente cd inner join mydb.asignatura a on cd.Asignatura_AsignaturaId = a.AsignaturaId where cd.Docente_DocenteId="+aux2);
+            ResultSet rs2 = stmt.executeQuery("select area from mydb.Cargo_has_docente cd inner join mydb.asignatura a on cd.Asignatura_AsignaturaId = a.AsignaturaId where cd.Docente_DocenteId="+aux2);
             txtArea.removeAll();
             while(rs2.next()){
                 String area= String.valueOf(rs2.getString(1));
                 txtArea.setText(area);
             }
-             ResultSet rs3 = stmt.executeQuery("select condicion from mydb.cargo_has_docente cd inner join mydb.asignatura a on cd.Asignatura_AsignaturaId = a.AsignaturaId where cd.Docente_DocenteId="+aux2);
+             ResultSet rs3 = stmt.executeQuery("select condicion from mydb.Cargo_has_docente cd inner join mydb.asignatura a on cd.Asignatura_AsignaturaId = a.AsignaturaId where cd.Docente_DocenteId="+aux2);
             txtArea.removeAll();
             while(rs3.next()){
                 String condicion= String.valueOf(rs3.getString(1));

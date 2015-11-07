@@ -580,7 +580,7 @@ public class GrillaDocente extends javax.swing.JInternalFrame {
         try {
             Connection cn = BD.getConnection();
             Statement stmt = cn.createStatement();
-            ResultSet rs1 = stmt.executeQuery("select max(CargoDocenteId) from cargo_has_docente");
+            ResultSet rs1 = stmt.executeQuery("select max(CargoDocenteId) from Cargo_has_docente");
             while (rs1.next()) {
                 txtCargoDocenteId.setText(String.valueOf(rs1.getInt(1)+1));
             }
@@ -635,7 +635,7 @@ public class GrillaDocente extends javax.swing.JInternalFrame {
         /*try {
             Connection cn = BD.getConnection();
             Statement stmt = cn.createStatement();
-            ResultSet rs = stmt.executeQuery("select max(CargoDocenteId) from cargo_has_docente");
+            ResultSet rs = stmt.executeQuery("select max(CargoDocenteId) from Cargo_has_docente");
             while (rs.next()) {
                 txtc1.setText(String.valueOf(rs.getInt(1)+1));
             }
@@ -808,7 +808,7 @@ public class GrillaDocente extends javax.swing.JInternalFrame {
         this.jtCargoDocente.setModel(info);
         Connection cn = BD.getConnection();
         Statement stmt = cn.createStatement();
-        ResultSet rs = stmt.executeQuery("SELECT cd.CargoDocenteId,a.Nivel,a.Nombre,d.Condicion,c.Nombre FROM mydb.cargo_has_docente cd inner join mydb.asignatura a on cd.Asignatura_AsignaturaId=a.AsignaturaId inner join mydb.docente d on d.DocenteId=cd.Docente_DocenteId inner join mydb.Cargo c on c.CargoId=cd.Cargo_CargoId where cd.Docente_DocenteId="+txtDocenteId.getText());
+        ResultSet rs = stmt.executeQuery("SELECT cd.CargoDocenteId,a.Nivel,a.Nombre,d.Condicion,c.Nombre FROM mydb.Cargo_has_docente cd inner join mydb.asignatura a on cd.Asignatura_AsignaturaId=a.AsignaturaId inner join mydb.docente d on d.DocenteId=cd.Docente_DocenteId inner join mydb.Cargo c on c.CargoId=cd.Cargo_CargoId where cd.Docente_DocenteId="+txtDocenteId.getText());
       
        
         //Obteniendo la informacion de las columnas que estan siendo consultadas
