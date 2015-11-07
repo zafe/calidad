@@ -268,7 +268,7 @@ public class NuevaCategoria extends javax.swing.JInternalFrame {
         try {
             Connection cn = BD.getConnection();
             Statement stmt = cn.createStatement();
-            ResultSet rs = stmt.executeQuery("select max(CategoriaId) from categoria");
+            ResultSet rs = stmt.executeQuery("select max(CategoriaId) from Categoria");
             while (rs.next()) {
                 txtc.setText(String.valueOf(rs.getInt(1)+1));
             }

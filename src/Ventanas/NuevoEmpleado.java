@@ -32,7 +32,7 @@ public class NuevoEmpleado extends javax.swing.JFrame {
 
             Connection con = BD.getConnection();
             Statement stmt = con.createStatement();
-            ResultSet rs = stmt.executeQuery("select descripcion from categoria");
+            ResultSet rs = stmt.executeQuery("select descripcion from Categoria");
             while (rs.next()) {
                  cboC.addItem(rs.getObject(1));
             }
