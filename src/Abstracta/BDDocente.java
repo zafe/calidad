@@ -22,12 +22,12 @@ public abstract class BDDocente {
     public static Docente insertarDocente(Docente d) throws SQLException {
         Connection cnn = BD.getConnection();
         PreparedStatement ps = null;
-        ps = cnn.prepareStatement("insert into docente (Legajo,Nombre) values (?,?)");
+        ps = cnn.prepareStatement("insert into Docente (Legajo,Nombre) values (?,?)");
         ps.setInt(1, d.getLegajo());
         ps.setString(2, d.getNombre());
           
         ps.executeUpdate();
-        PreparedStatement ps2 = cnn.prepareStatement("select max(Legajo) from docente");
+        PreparedStatement ps2 = cnn.prepareStatement("select max(Legajo) from Docente");
         ResultSet r = ps2.executeQuery();
         if (r.next()) {
             int lastID = r.getInt(1);
@@ -46,7 +46,7 @@ public abstract class BDDocente {
     public static Docente buscarDocenteCodigo(int legajo, Docente d) throws SQLException {
         Connection cnn = BD.getConnection();
         PreparedStatement ps = null;
-        ps = cnn.prepareStatement("select Nombre from docente where legajo=?");
+        ps = cnn.prepareStatement("select Nombre from Docente where legajo=?");
         ps.setInt(1, legajo);
         ResultSet rs = ps.executeQuery();
         if (rs.next()) {
@@ -70,7 +70,7 @@ public abstract class BDDocente {
     public static Docente buscarDocenteNombre(String nombre, Docente d) throws SQLException {
         Connection cnn = BD.getConnection();
         PreparedStatement ps = null;
-        ps = cnn.prepareStatement("select * from docente where Nombre=?");
+        ps = cnn.prepareStatement("select * from Docente where Nombre=?");
         ps.setString(1, nombre);
         ResultSet rs = ps.executeQuery();
         if (rs.next()) {
@@ -92,7 +92,7 @@ public abstract class BDDocente {
         Connection cnn = BD.getConnection();
         PreparedStatement ps = null;
 
-        ps = cnn.prepareStatement("update docente set Nombre=? where Legajo=" + d.getLegajo());
+        ps = cnn.prepareStatement("update Docente set Nombre=? where Legajo=" + d.getLegajo());
         ps.setString(1, d.getNombre());
         int rowsUpdated = ps.executeUpdate();
         cnn.close();
@@ -109,7 +109,7 @@ public abstract class BDDocente {
         PreparedStatement ps = null;
         ArrayList<Docente> lista = new ArrayList<Docente>();
 
-        ps = cnn.prepareStatement("select *from docente");
+        ps = cnn.prepareStatement("select *from Docente");
         ResultSet rs = ps.executeQuery();
         while (rs.next()) {
             Docente d = new Docente() {
@@ -132,7 +132,7 @@ public abstract class BDDocente {
     }
 
     private static ArrayList<Docente> listar(String atributo, String parametro, String comparador) {
-        return consultarSQL("select * from docente where " + atributo + " " + comparador + " '" + parametro + "'");
+        return consultarSQL("select * from Docente where " + atributo + " " + comparador + " '" + parametro + "'");
     }
 
     private static ArrayList<Docente> consultarSQL(String sql) {

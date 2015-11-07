@@ -438,10 +438,10 @@ public class GrillaHorario extends javax.swing.JInternalFrame {
             }
             txtDocenteId.setText(numero);
             System.out.println("numeros: " + numero);
-            //String docente = d.substring(0);
+            //String Docente = d.substring(0);
             int aux2;
             aux2 = Integer.parseInt(numero);
-             ResultSet rs4 = stmt.executeQuery("SELECT Nombre FROM mydb.docente d where d.DocenteId="+aux2);
+             ResultSet rs4 = stmt.executeQuery("SELECT Nombre FROM mydb.Docente d where d.DocenteId="+aux2);
             txtDocenteNombre.removeAll();
             while(rs4.next()){
                 String docenteNombre =String.valueOf(rs4.getString(1));

@@ -218,7 +218,7 @@ public class CargoDocente extends Entidad {
     @Override
      public ResultSet leer() throws SQLException {
          ResultSet rs=null;
-         String consulta="SELECT a.Nombre,c.Nombre FROM mydb.cargo_has_docente cd inner join mydb.asignatura a on cd.Asignatura_AsignaturaId=a.AsignaturaId inner join mydb.docente d on d.DocenteId=cd.Docente_DocenteId inner join mydb.cargo c on c.CargoId=cd.Cargo_CargoId";
+         String consulta="SELECT a.Nombre,c.Nombre FROM mydb.cargo_has_docente cd inner join mydb.asignatura a on cd.Asignatura_AsignaturaId=a.AsignaturaId inner join mydb.Docente d on d.DocenteId=cd.Docente_DocenteId inner join mydb.cargo c on c.CargoId=cd.Cargo_CargoId";
          Conexion con=new Conexion();
          con.conectar();
         try{
@@ -254,7 +254,7 @@ public class CargoDocente extends Entidad {
     @Override
     public ResultSet filtrar() throws SQLException {
        ResultSet rs=null;
-        String consulta="SELECT * FROM mydb.cargo_has_docente cd inner join mydb.asignatura a on cd.Asignatura_AsignaturaId=a.AsignaturaId inner join mydb.docente d on d.DocenteId=cd.Docente_DocenteId inner join mydb.cargo c on c.CargoId=cd.Cargo_CargoId where cd.CargoDocenteId="+this.cargoDocenteId;
+        String consulta="SELECT * FROM mydb.cargo_has_docente cd inner join mydb.asignatura a on cd.Asignatura_AsignaturaId=a.AsignaturaId inner join mydb.Docente d on d.DocenteId=cd.Docente_DocenteId inner join mydb.cargo c on c.CargoId=cd.Cargo_CargoId where cd.CargoDocenteId="+this.cargoDocenteId;
         Conexion con=new Conexion();
         con.conectar();
         try{
