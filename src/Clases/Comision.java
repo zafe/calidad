@@ -60,7 +60,7 @@ public class Comision extends Entidad {
        
     @Override
     public void altas() {
-        String consulta = "INSERT INTO comision VALUES ("
+        String consulta = "INSERT INTO Comision VALUES ("
                 + ""+this.comisionId+","
                 + ""+this.nivel+","
                 + ""+this.cantidadAlumnos+","
