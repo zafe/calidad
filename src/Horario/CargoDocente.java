@@ -60,7 +60,7 @@ public class CargoDocente extends Entidad {
     public CargoDocente(){
     }
     
-    public CargoDocente (int cargoDocenteId,int cargoId,int docenteId,int asignatura)
+    public CargoDocente (int cargoDocenteId,int cargoId,int docenteId,int Asignatura)
      {
         this.cargoDocenteId=cargoDocenteId;
         this.cargoId=cargoId;

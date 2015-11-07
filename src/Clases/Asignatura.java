@@ -252,7 +252,7 @@ public void setCargaSemanal(int cargaSemanal) {
         Connection cnn = BD.getConnection();
         PreparedStatement ps = null;
 
-        ps = cnn.prepareStatement("update asignatura set Nombre=?,Nivel=?,CargaSemanal=?,Area=?,Condicion=? where Codigo=" + c.getCodigo());
+        ps = cnn.prepareStatement("update Asignatura set Nombre=?,Nivel=?,CargaSemanal=?,Area=?,Condicion=? where Codigo=" + c.getCodigo());
         ps.setString(1, c.getNombre());
         ps.setInt(2, c.getNivel());
         ps.setInt(3, c.getCargaSemanal());
@@ -274,7 +274,7 @@ public void setCargaSemanal(int cargaSemanal) {
         PreparedStatement ps = null;
         ArrayList<Asignatura> lista = new ArrayList<Asignatura>();
 
-        ps = cnn.prepareStatement("select *from asignatura");
+        ps = cnn.prepareStatement("select *from Asignatura");
         ResultSet rs = ps.executeQuery();
         while (rs.next()) {
             Asignatura c = new Asignatura() {
@@ -302,7 +302,7 @@ public void setCargaSemanal(int cargaSemanal) {
     }
 
     private static ArrayList<Asignatura> listar(String atributo, String parametro, String comparador) {
-        return consultarSQL("select * from asignatura where " + atributo + " " + comparador + " '" + parametro + "'");
+        return consultarSQL("select * from Asignatura where " + atributo + " " + comparador + " '" + parametro + "'");
     }
 
     private static ArrayList<Asignatura> consultarSQL(String sql) {

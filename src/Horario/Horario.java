@@ -269,7 +269,7 @@ public class Horario extends Entidad {
         Connection cnn = BD.getConnection();
         PreparedStatement ps = null;
 
-        ps = cnn.prepareStatement("update asignatura set Nombre=?,Nivel=?,CargaSemanal=? where Codigo=" + c.getCodigo());
+        ps = cnn.prepareStatement("update Asignatura set Nombre=?,Nivel=?,CargaSemanal=? where Codigo=" + c.getCodigo());
         ps.setString(1, c.getNombre());
         ps.setInt(2, c.getNivel());
         ps.setInt(3, c.getCargaSemanal());
@@ -288,7 +288,7 @@ public class Horario extends Entidad {
         PreparedStatement ps = null;
         ArrayList<Horario> lista = new ArrayList<Horario>();
 
-        ps = cnn.prepareStatement("select *from asignatura");
+        ps = cnn.prepareStatement("select *from Asignatura");
         ResultSet rs = ps.executeQuery();
         while (rs.next()) {
             Horario c = new Horario() {
@@ -315,7 +315,7 @@ public class Horario extends Entidad {
     }
 
     private static ArrayList<Horario> listar(String atributo, String parametro, String comparador) {
-        return consultarSQL("select * from asignatura where " + atributo + " " + comparador + " '" + parametro + "'");
+        return consultarSQL("select * from Asignatura where " + atributo + " " + comparador + " '" + parametro + "'");
     }
 
     private static ArrayList<Horario> consultarSQL(String sql) {

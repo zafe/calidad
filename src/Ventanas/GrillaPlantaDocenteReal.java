@@ -412,7 +412,7 @@ public void buscar(){
         this.jtContenidoPlantaDocente.setModel(info);
         Connection cn = BD.getConnection();
         Statement stmt = cn.createStatement();
-         ResultSet rs = stmt.executeQuery("SELECT pd.PlantaDocenteId,c.Nombre,pd.Comisiones,pd.Dedicaciones,d.Nombre FROM mydb.Plantadocente pd inner join mydb.Cargo_has_docente cd on pd.CargohasDocente_CargoDocenteId=cd.CargoDocenteId inner join mydb.Docente d on cd.Docente_DocenteId=d.DocenteId inner join mydb.Cargo c on c.CargoId=cd.Cargo_CargoId inner join mydb.asignatura a on cd.Asignatura_AsignaturaId=a.AsignaturaId where a.Codigo='"+txtId.getText()+"'");
+         ResultSet rs = stmt.executeQuery("SELECT pd.PlantaDocenteId,c.Nombre,pd.Comisiones,pd.Dedicaciones,d.Nombre FROM mydb.Plantadocente pd inner join mydb.Cargo_has_docente cd on pd.CargohasDocente_CargoDocenteId=cd.CargoDocenteId inner join mydb.Docente d on cd.Docente_DocenteId=d.DocenteId inner join mydb.Cargo c on c.CargoId=cd.Cargo_CargoId inner join mydb.Asignatura a on cd.Asignatura_AsignaturaId=a.AsignaturaId where a.Codigo='"+txtId.getText()+"'");
         //Obteniendo la informacion de las columnas que estan siendo consultadas
         ResultSetMetaData rsMd = (ResultSetMetaData) rs.getMetaData();
         //La cantidad de columnas que tiene la consulta

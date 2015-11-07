@@ -447,7 +447,7 @@ public class GrillaHorario extends javax.swing.JInternalFrame {
                 String docenteNombre =String.valueOf(rs4.getString(1));
                 txtDocenteNombre.setText(docenteNombre);
             }
-            ResultSet rs = stmt.executeQuery("select a.AsignaturaId,a.nombre from mydb.Cargo_has_docente cd inner join mydb.asignatura a on cd.Asignatura_AsignaturaId = a.AsignaturaId where cd.Docente_DocenteId="+aux2);
+            ResultSet rs = stmt.executeQuery("select a.AsignaturaId,a.nombre from mydb.Cargo_has_docente cd inner join mydb.Asignatura a on cd.Asignatura_AsignaturaId = a.AsignaturaId where cd.Docente_DocenteId="+aux2);
             jAsignatura.removeAllItems();
             while (rs.next()) {
                 String aux = String.valueOf(rs.getString(1)+" - "+rs.getString(2));
@@ -465,7 +465,7 @@ public class GrillaHorario extends javax.swing.JInternalFrame {
                 }
                 System.out.println("numeros1: " + numero1);
                 txtAsignaturaId.setText(numero1);
-               ResultSet rs5 = stmt.executeQuery("SELECT Nombre FROM mydb.asignatura a where a.AsignaturaId="+numero1);
+               ResultSet rs5 = stmt.executeQuery("SELECT Nombre FROM mydb.Asignatura a where a.AsignaturaId="+numero1);
             txtAsignaturaNombre.removeAll();
             while(rs5.next()){
                 String AsignaturaNombre =String.valueOf(rs5.getString(1));
@@ -483,13 +483,13 @@ public class GrillaHorario extends javax.swing.JInternalFrame {
                 txtDedicacion.setText(dedi);
             }
              //para probar
-            ResultSet rs2 = stmt.executeQuery("select area from mydb.Cargo_has_docente cd inner join mydb.asignatura a on cd.Asignatura_AsignaturaId = a.AsignaturaId where cd.Docente_DocenteId="+aux2);
+            ResultSet rs2 = stmt.executeQuery("select area from mydb.Cargo_has_docente cd inner join mydb.Asignatura a on cd.Asignatura_AsignaturaId = a.AsignaturaId where cd.Docente_DocenteId="+aux2);
             txtArea.removeAll();
             while(rs2.next()){
                 String area= String.valueOf(rs2.getString(1));
                 txtArea.setText(area);
             }
-             ResultSet rs3 = stmt.executeQuery("select condicion from mydb.Cargo_has_docente cd inner join mydb.asignatura a on cd.Asignatura_AsignaturaId = a.AsignaturaId where cd.Docente_DocenteId="+aux2);
+             ResultSet rs3 = stmt.executeQuery("select condicion from mydb.Cargo_has_docente cd inner join mydb.Asignatura a on cd.Asignatura_AsignaturaId = a.AsignaturaId where cd.Docente_DocenteId="+aux2);
             txtArea.removeAll();
             while(rs3.next()){
                 String condicion= String.valueOf(rs3.getString(1));
